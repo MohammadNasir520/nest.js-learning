@@ -1,11 +1,6 @@
 import { Module } from '@nestjs/common';
-import { OrderModule } from './orders.module';
 
-@Module({
-  imports: [],
-  controllers: [],
-  providers: [],
-})
+@Module({})
 export class UsersModule {
   constructor() {
     console.log('Users module');
