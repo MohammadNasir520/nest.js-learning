@@ -1,5 +1,4 @@
-import { Controller, Delete, Get, Post, Put } from '@nestjs/common/decorators';
-import { get } from 'http';
+import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
 
 @Controller('book')
 export class BookController {
@@ -17,7 +16,7 @@ export class BookController {
 
   // update book
   @Put('/update')
-  updateBoo(): string {
+  updateBook(): string {
     return 'this will update book';
   }
 
