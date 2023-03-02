@@ -7,6 +7,6 @@ import { Module } from '@nestjs/common';
 })
 export class Feature3 {
   constructor() {
-    console.log(' Feature3 module');
+    console.log('Feature3');
   }
 }
