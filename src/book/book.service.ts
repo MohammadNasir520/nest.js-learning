@@ -82,5 +82,6 @@ export class BookServices {
       currentBook.id = book.id;
     });
     this.books[index] = book;
+    return 'book added succes';
   }
 }
