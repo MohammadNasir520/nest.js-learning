@@ -78,8 +78,9 @@ export class BookServices {
   }
   // update book
   updateBookService(book): string {
-    const index = this.books.findIndex((book) => {
-      book.id = bookId;
+    const index = this.books.findIndex((currentBook) => {
+      currentBook.id = book.id;
     });
+    this.books[index] = book;
   }
 }
