@@ -69,7 +69,7 @@ export class BookServices {
   }
 
   //delete books
-  deletBook(bookId: string): string {
+  deleteBook(bookId: string): string {
     this.books = this.books.filter((book) => {
       return book.id !== bookId;
     });
