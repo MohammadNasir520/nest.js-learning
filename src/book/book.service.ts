@@ -37,18 +37,33 @@ import { Book } from './data/book.dto';
 //     return this.books;
 //   }
 // }
+// @Injectable()
+// export class BookService {
+//   public books: Book[] = [];
+
+//   // add book services
+//   addBookService(book: Book): string {
+//     this.books.push(book);
+//     return 'book added successfully';
+//   }
+
+//   // get all book
+
+//   findAllBooks(): Book[] {
+//     return this.books;
+//   }
+// }
 @Injectable()
-export class BookService {
+export class BookServices {
   public books: Book[] = [];
 
-  // add book services
+  // add books
   addBookService(book: Book): string {
     this.books.push(book);
     return 'book added successfully';
   }
 
-  // get all book
-
+  // get books
   findAllBooks(): Book[] {
     return this.books;
   }

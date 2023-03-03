@@ -9,7 +9,7 @@
 // } from '@nestjs/common';
 
 import { Body, Controller, Get, Post, Put } from '@nestjs/common/decorators';
-import { BookService } from './book.service';
+import { BookServices } from './book.service';
 import { Book } from './data/book.dto';
 
 // import { BookService } from './book.service';
@@ -38,16 +38,31 @@ import { Book } from './data/book.dto';
 //   }
 // }
 
+// @Controller('book')
+// export class BookController {
+//   constructor(private bookService: BookService) {}
+//   @Post('/add')
+//   addBook(@Body() book: Book): string {
+//     return this.bookService.addBookService(book);
+//   }
+
+//   @Get('/findAllBooks')
+//   getAllBooks(): Book[] {
+//     return this.bookService.findAllBooks();
+//   }
+// }
 @Controller('book')
 export class BookController {
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookServices) {}
+
   @Post('/add')
-  addBook(@Body() book: Book): string {
-    return this.bookService.addBookService(book);
+  addbook(@Body() book: Book): string {
+    this.bookService.addBookService(book);
+    return 'book added';
   }
 
   @Get('/findAllBooks')
-  getAllBooks(): Book[] {
+  findAllBooks(): Book[] {
     return this.bookService.findAllBooks();
   }
 }
