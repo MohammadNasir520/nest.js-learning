@@ -69,7 +69,6 @@ export class BookServices {
   }
 
   //delete books
-  @Delete('/delete/:id')
   deletBook(bookId: string): string {
     this.books = this.books.filter((book) => {
       return book.id !== bookId;
@@ -77,4 +76,5 @@ export class BookServices {
 
     return ' book deleted successfully';
   }
+  // update book
 }
