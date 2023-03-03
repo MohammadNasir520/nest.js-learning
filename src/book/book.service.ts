@@ -9,6 +9,20 @@ export class BookService {
     return 'book has been successfully updated';
   }
   // update book
+  updateBookService(book: Book): string {
+    const index = this.books.findIndex((currentBook) => {
+      return (currentBook.id = book.id);
+    });
+    this.books[index] = book;
+    return 'book has been successfully updated';
+  }
   // delete book
+  deleteBookService(bookId: string): string {
+    this.books = this.books.filter((book) => {
+      return book.id !== bookId;
+    });
+    return 'book is deleted';
+  }
+
   // find all book
 }
