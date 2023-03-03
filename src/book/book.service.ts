@@ -1,7 +1,7 @@
 // import { Injectable } from '@nestjs/common';
 // import { Book } from './data/book.dto';
 
-import { Injectable } from '@nestjs/common/decorators';
+import { Delete, Injectable, Param } from '@nestjs/common/decorators';
 import { Book } from './data/book.dto';
 
 // @Injectable()
@@ -66,5 +66,15 @@ export class BookServices {
   // get books
   findAllBooks(): Book[] {
     return this.books;
+  }
+
+  //delete books
+  @Delete('/delete/:id')
+  deletBook(bookId: string): string {
+    this.books = this.books.filter((book) => {
+      return book.id !== bookId;
+    });
+
+    return ' book deleted successfully';
   }
 }

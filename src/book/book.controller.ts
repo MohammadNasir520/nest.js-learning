@@ -8,7 +8,15 @@
 //   Put,
 // } from '@nestjs/common';
 
-import { Body, Controller, Get, Post, Put } from '@nestjs/common/decorators';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common/decorators';
 import { BookServices } from './book.service';
 import { Book } from './data/book.dto';
 
@@ -57,12 +65,16 @@ export class BookController {
 
   @Post('/add')
   addbook(@Body() book: Book): string {
-    this.bookService.addBookService(book);
-    return 'book added';
+    return this.bookService.addBookService(book);
   }
 
   @Get('/findAllBooks')
   findAllBooks(): Book[] {
     return this.bookService.findAllBooks();
+  }
+
+  @Delete('/delete/:id')
+  deleteBook(@Param('id') bookId: string) {
+    return this.bookService.deletBook(bookId);
   }
 }
