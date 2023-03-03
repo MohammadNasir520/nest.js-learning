@@ -1,5 +1,7 @@
+import { Injectable } from '@nestjs/common';
 import { Book } from './data/book.dto';
 
+@Injectable()
 export class BookService {
   public books: Book[] = [];
 
@@ -8,6 +10,7 @@ export class BookService {
     this.books.push(book);
     return 'book has been successfully updated';
   }
+
   // update book
   updateBookService(book: Book): string {
     const index = this.books.findIndex((currentBook) => {
@@ -16,6 +19,7 @@ export class BookService {
     this.books[index] = book;
     return 'book has been successfully updated';
   }
+
   // delete book
   deleteBookService(bookId: string): string {
     this.books = this.books.filter((book) => {
@@ -25,4 +29,8 @@ export class BookService {
   }
 
   // find all book
+
+  findAllBook(): Book[] {
+    return this.books;
+  }
 }
