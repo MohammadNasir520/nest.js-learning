@@ -77,4 +77,5 @@ export class BookServices {
     return ' book deleted successfully';
   }
   // update book
+  updateBookService(): string {}
 }
