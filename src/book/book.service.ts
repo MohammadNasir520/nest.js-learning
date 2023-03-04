@@ -76,7 +76,7 @@ export class BookServices {
 
     return ' book deleted successfully';
   }
-  // update book
+  // update books
   updateBookService(book: Book): string {
     const index = this.books.findIndex((currentBook) => {
       return (currentBook.id = book.id);
