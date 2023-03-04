@@ -41,22 +41,22 @@
 //   }
 // }
 
-import { MongoClient } from 'mongodb';
+// import { MongoClient } from 'mongodb';
 
-export const connectToDatabase = async () => {
-  const uri =
-    'mongodb+srv://<username>:<password>@<cluster-url>/test?retryWrites=true&w=majority'; // replace with your connection string
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+// export const connectToDatabase = async () => {
+//   const uri =
+//     'mongodb+srv://<username>:<password>@<cluster-url>/test?retryWrites=true&w=majority'; // replace with your connection string
+//   const client = new MongoClient(uri, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   });
 
-  try {
-    await client.connect();
-    console.log('Connected to MongoDB Atlas');
-    return client.db('mydatabase'); // replace with your database name
-  } catch (err) {
-    console.error(err);
-    process.exit(1);
-  }
-};
+//   try {
+//     await client.connect();
+//     console.log('Connected to MongoDB Atlas');
+//     return client.db('mydatabase'); // replace with your database name
+//   } catch (err) {
+//     console.error(err);
+//     process.exit(1);
+//   }
+// };

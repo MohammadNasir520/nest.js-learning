@@ -1,21 +1,15 @@
-import { MongoClient, ServerApiVersion } from 'mongodb';
-export const mongoDBConnection = async () => {
-  // nestJs-learning
-  // lyEXTeXdLjXsTbx7
+import { MongoClient } from 'mongodb';
 
-  const uri =
-    'mongodb+srv://nestJs-learning:lyEXTeXdLjXsTbx7@cluster0.c5dej4c.mongodb.net/?retryWrites=true&w=majority';
-  const client = new MongoClient(uri, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-    serverApi: ServerApiVersion.v1,
-  });
+export const connectToDatabase = async () => {
+  const uri = `mongodb+srv://nestJS_learning:NrYQf4LTuPs7xxol@cluster0.c5dej4c.mongodb.net/?retryWrites=true&w=majority`;
+  const client = new MongoClient(uri);
 
   try {
-    client.connect();
-
-    return client.db('nestJs-learning');
-  } catch (error) {
-    console.log(error);
+    await client.connect();
+    console.log('Connected to MongoDB database');
+    return client.db('nestJsLearning');
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
   }
 };
