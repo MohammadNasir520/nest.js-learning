@@ -1,13 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Put,
-  Delete,
-  Body,
-  Param,
-  Injectable,
-} from '@nestjs/common';
+import { Body, Param, Injectable } from '@nestjs/common';
 import { ObjectId } from 'mongodb';
 import { connectToDatabase } from './mongo.connection';
 
@@ -53,9 +44,6 @@ export class UsersServices {
   }
 
   async deleteUser(@Param('id') id: string) {
-    // const user = await this.db
-    //   .collection('users')
-    //   .findOne({ _id: new ObjectId(id) });
     const deleteUser = await this.db
       .collection('users')
       .deleteOne({ _id: new ObjectId(id) });
