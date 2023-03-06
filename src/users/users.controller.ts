@@ -6,7 +6,11 @@ import {
   Param,
   Post,
   Put,
+  ValidationPipe,
 } from '@nestjs/common';
+import { UseGuards } from '@nestjs/common/decorators/core/use-guards.decorator';
+import { User } from './data/user.dto';
+import { UserGuards } from './user.Guards';
 import { UsersServices } from './users.service';
 
 @Controller('users')
@@ -14,11 +18,12 @@ export class UsersController {
   constructor(private usersService: UsersServices) {}
 
   @Post('/add')
-  addUser(@Body() body) {
-    return this.usersService.create(body);
+  addUser(@Body(new ValidationPipe()) body: User) {
+    return this.usersService.addUser(body);
   }
 
   @Get('/getUsers')
+  @UseGuards(new UserGuards())
   getUsers() {
     return this.usersService.findAll();
   }
@@ -29,7 +34,7 @@ export class UsersController {
   }
 
   @Put('/update/:id')
-  updateUser(@Param('id') id: string, @Body() body) {
+  updateUser(@Param('id') id: string, @Body() body: User) {
     return this.usersService.update(id, body);
   }
 

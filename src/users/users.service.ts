@@ -16,7 +16,7 @@ export class UsersServices {
   }
 
   // add user
-  async create(body: User): Promise<User> {
+  async addUser(body: User): Promise<User> {
     const user = await this.usersCollection.insertOne(body);
 
     return user;
@@ -34,7 +34,7 @@ export class UsersServices {
     return user;
   }
   // update user
-  async update(@Param('id') id: string, body: User) {
+  async update(id: string, body: User) {
     const updateUser = await this.usersCollection.updateOne(
       { _id: new ObjectId(id) },
       { $set: body },
@@ -43,7 +43,7 @@ export class UsersServices {
     return { updateUser, user };
   }
 
-  async deleteUser(@Param('id') id: string) {
+  async deleteUser(id: string) {
     const deleteUser = await this.usersCollection.deleteOne({
       _id: new ObjectId(id),
     });
